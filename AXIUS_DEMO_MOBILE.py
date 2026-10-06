@@ -31,21 +31,77 @@ div.stButton>button{border-radius:12px;min-height:44px;font-weight:750}
 </style>
 """, unsafe_allow_html=True)
 
-if "demo" not in st.session_state: st.session_state.demo = False
+# ================================================================
+# ENTRADA DA DEMONSTRAÇÃO
+# ================================================================
 
-if not st.session_state.demo:
-    st.markdown("""<div style="text-align:center;padding:34px 10px 20px">
-    <div style="font-size:64px">🦅</div><div style="color:#fff;font-size:35px;font-weight:900;letter-spacing:5px">ÁXIUS</div>
-    <div style="color:#7f9ab5;font-size:10px;letter-spacing:2px">INTELIGÊNCIA JURÍDICA</div></div>""", unsafe_allow_html=True)
-    st.markdown("""<div class="hero"><div class="kicker">Demonstração gratuita</div>
-    <h1>Tecnologia que antecipa.<br>Informação que protege.</h1>
-    <p>Uma experiência mobile do ÁXIUS para mostrar como o monitoramento jurídico pode trabalhar continuamente por um escritório.</p>
-    <div class="online">● AMBIENTE DE DEMONSTRAÇÃO</div></div>""", unsafe_allow_html=True)
-    st.markdown("""<div class="card"><div class="title">O que você verá</div>
-    <div class="meta">✓ Visão geral do escritório<br>✓ Monitoramentos ativos<br>✓ Publicações encontradas<br>✓ Central de alertas<br>✓ Inteligência jurídica</div></div>""", unsafe_allow_html=True)
-    if st.button("🦅  ENTRAR NA DEMONSTRAÇÃO", use_container_width=True, type="primary"):
-        st.session_state.demo=True; st.rerun()
-    st.markdown('<div class="footer">ÁXIUS • MAGALHÃES PUBLICAÇÕES<br>Demonstração comercial — dados fictícios</div>', unsafe_allow_html=True)
+demo = st.query_params.get("demo") == "1"
+
+if not demo:
+    st.markdown("""
+    <div style="text-align:center;padding:34px 10px 20px">
+        <div style="font-size:64px">🦅</div>
+        <div style="color:#fff;font-size:35px;font-weight:900;letter-spacing:5px">
+            ÁXIUS
+        </div>
+        <div style="color:#7f9ab5;font-size:10px;letter-spacing:2px">
+            INTELIGÊNCIA JURÍDICA
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class="hero">
+        <div class="kicker">Demonstração gratuita</div>
+        <h1>Tecnologia que antecipa.<br>Informação que protege.</h1>
+        <p>
+            Uma experiência mobile do ÁXIUS para mostrar como o
+            monitoramento jurídico pode trabalhar continuamente por um escritório.
+        </p>
+        <div class="online">● AMBIENTE DE DEMONSTRAÇÃO</div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class="card">
+        <div class="title">O que você verá</div>
+        <div class="meta">
+            ✓ Visão geral do escritório<br>
+            ✓ Monitoramentos ativos<br>
+            ✓ Publicações encontradas<br>
+            ✓ Central de alertas<br>
+            ✓ Inteligência jurídica
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <a href="?demo=1"
+       style="
+       display:block;
+       width:100%;
+       box-sizing:border-box;
+       text-align:center;
+       text-decoration:none;
+       background:#ff4b4b;
+       color:white;
+       border-radius:12px;
+       min-height:44px;
+       line-height:44px;
+       font-weight:750;
+       font-size:14px;
+       margin-top:10px;">
+       🦅 &nbsp; ENTRAR NA DEMONSTRAÇÃO
+    </a>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class="footer">
+        ÁXIUS • MAGALHÃES PUBLICAÇÕES<br>
+        Demonstração comercial — dados fictícios
+    </div>
+    """, unsafe_allow_html=True)
+
     st.stop()
 
 monitoramentos=[
